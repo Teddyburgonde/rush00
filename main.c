@@ -6,16 +6,15 @@
 /*   By: tebandam <tebandam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 13:00:08 by tebandam          #+#    #+#             */
-/*   Updated: 2024/05/18 15:09:50 by tebandam         ###   ########.fr       */
+/*   Updated: 2024/05/18 15:27:28 by tebandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
-{
-	write (1, &c, 1);
-}
+void	ft_putchar(char c);
+void	ft_putstr(char *str);
+
 void	write_first_and_last_line(int x)
 {
 	int	i;
@@ -58,7 +57,7 @@ void	rush(int x, int y)
 		return ;
 	if (x == 1 && y == 1)
 	{
-		write (1, "o\n", 2);
+		ft_putstr("o\n");
 		return ;
 	}
 	if (x == 1)
@@ -67,12 +66,10 @@ void	rush(int x, int y)
 		j = 0;
 		while (j < y - 2)
 		{
-			ft_putchar('\n');
-			ft_putchar('|');
+			ft_putstr("\n|");
 			j++;
 		}
-		ft_putchar('\n');
-		write (1, "o\n", 2);
+		ft_putstr("\no\n");
 		return ;
 	}
 	write_first_and_last_line(x);
@@ -91,6 +88,6 @@ void	rush(int x, int y)
 }
 int	main()
 {
-	rush(5, 5);
+	rush(1, 55);
 	return (0);
 }
