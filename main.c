@@ -6,7 +6,7 @@
 /*   By: tebandam <tebandam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 13:00:08 by tebandam          #+#    #+#             */
-/*   Updated: 2024/05/18 15:27:28 by tebandam         ###   ########.fr       */
+/*   Updated: 2024/05/18 16:28:04 by tebandam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,80 +14,12 @@
 
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
+void	write_mid_line(int x);
+void	write_first_and_last_line(int x);
+void	rush(int x, int y);
 
-void	write_first_and_last_line(int x)
+int	main(void)
 {
-	int	i;
-
-	i = 0;
-	ft_putchar('o');
-	while (i < x - 2)
-	{
-		ft_putchar('-');
-		i++;
-	}
-	ft_putchar('o');
-}
-
-void	write_mid_line(int x)
-{
-	int	i;
-
-	ft_putchar('|');
-	i = 1;
-	while (i < x - 1)
-	{
-		ft_putchar(' ');
-		i++;
-	}
-	ft_putchar('|');
-	
-}
-
-void	rush(int x, int y)
-{	
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	if (x <= 0 || y <= 0)
-		return ;
-	if (x > 2147483647 || y > 2147483647)
-		return ;
-	if (x == 1 && y == 1)
-	{
-		ft_putstr("o\n");
-		return ;
-	}
-	if (x == 1)
-	{
-		write (1, "o", 1);
-		j = 0;
-		while (j < y - 2)
-		{
-			ft_putstr("\n|");
-			j++;
-		}
-		ft_putstr("\no\n");
-		return ;
-	}
-	write_first_and_last_line(x);
-	ft_putchar('\n');
-	while (j < y - 2)
-	{
-		write_mid_line(x);
-		ft_putchar('\n');
-		j++;
-	}
-	if (y != 1)
-	{
-		write_first_and_last_line(x);
-		ft_putchar('\n');
-	}
-}
-int	main()
-{
-	rush(1, 55);
+	rush(5, 7);
 	return (0);
 }
